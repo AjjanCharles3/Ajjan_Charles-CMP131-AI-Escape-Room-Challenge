@@ -47,6 +47,15 @@ attempts = 0
 #   4. Use if/else to check the answer.
 #   5. If the code is 131, change the door status to "unlocked".
 #   6. Otherwise, display a friendly message and allow another attempt.
+while (door_status== "locked"):
+    access_code=(int(input("Please Enter an Access Code:"))
+                 if access_code == 131 
+                 print("Door is unlocked")
+                 else
+                 print("Door Locked Try Again") 
+
+
+
 
 # TODO 5:
 # After the loop ends, display that the door is unlocked.
