@@ -47,12 +47,19 @@ attempts = 0
 #   4. Use if/else to check the answer.
 #   5. If the code is 131, change the door status to "unlocked".
 #   6. Otherwise, display a friendly message and allow another attempt.
-while (door_status== "locked"):
-    access_code=(int(input("Please Enter an Access Code:"))
-                 if access_code == 131 
-                 print("Door is unlocked")
-                 else
-                 print("Door Locked Try Again") 
+
+
+while door_status == "locked":
+    user_response = input("Please input the digit combination: ")
+    player_answer = int(user_response)
+    attempts = attempts + 1
+    
+    if player_answer == 131:
+        door_status = "unlocked"
+        print("Click! The lock opens and the door is now clear.")
+    else:
+        print("Not quite the right sequence. Take another turn!")
+
 
 
 
@@ -60,7 +67,8 @@ while (door_status== "locked"):
 # TODO 5:
 # After the loop ends, display that the door is unlocked.
 # Display the number of attempts the player used.
-
+print("The door is unlocked.")
+print(f"Total attempts used: {attempts}")
 
 # ---------------- LEVEL 2: COOLING SYSTEM ------------------------
 
@@ -78,10 +86,23 @@ temperature = int(input("Enter the system temperature: "))
 #   1. If the temperature is below 50, display "Too cold."
 #   2. Otherwise, display "Overheating."
 #   3. Ask the player to enter a new temperature.
+current_temp = float(input("Please enter the temperature: "))
+
+while current_temp < 50 or current_temp >= 100:
+    if current_temp < 50:
+        print("Too cold.")
+    else:
+        print("Overheating.")
+        
+    current_temp = float(input("Please enter a different temperature: "))
+
+print("Temperature is now within a safe range.")
+
 
 # TODO 8:
 # After the loop ends, display that the temperature is safe.
 
+print("The temperature is safe.")
 
 # --------------- LEVEL 3: SECURITY DECISION ---------------------
 
@@ -97,6 +118,12 @@ choice = input("Enter your choice: ").lower()
 # Inside the loop:
 #   1. Display a friendly invalid-choice message.
 #   2. Ask the player to enter scan, shutdown, or share again.
+valid_actions = ["scan", "shutdown", "share"]
+player_choice = input("What would you like to do? (scan/shutdown/share): ").strip().lower()
+
+while player_choice not in valid_actions:
+    print("That option isn't available. Let's try that again!")
+    player_choice = input("Please enter scan, shutdown, or share: ").strip().lower()
 
 # TODO 11:
 # After the loop ends, use if/elif/else to display a different
@@ -104,6 +131,19 @@ choice = input("Enter your choice: ").lower()
 # The share message must remind the player not to share passwords
 # or private information with AI.
 
+valid_actions = ["scan", "shutdown", "share"]
+player_choice = input("What would you like to do? (scan/shutdown/share): ").strip().lower()
+
+while player_choice not in valid_actions:
+    print("That option isn't available. Let's try that again!")
+    player_choice = input("Please enter scan, shutdown, or share: ").strip().lower()
+
+if player_choice == "scan":
+    print("System scan initiated. Looking for anomalies...")
+elif player_choice == "shutdown":
+    print("Shutting down the terminal safely. Goodbye.")
+elif player_choice == "share":
+    print("Sharing active data stream. Remember: Never share passwords or private information with AI!")
 
 # ----------------------- FINAL ESCAPE ----------------------------
 
@@ -113,3 +153,16 @@ print("\nCongratulations,", player_name + "!")
 print("You escaped from C.O.D.E.'s virtual laboratory!")
 
 # Add one friendly or funny final message written by your team.
+valid_actions = ["scan", "shutdown", "share"]
+player_choice = input("What would you like to do? (scan/shutdown/share): ").strip().lower()
+
+while player_choice not in valid_actions:
+    print("That option isn't available. Let's try that again!")
+    player_choice = input("Please enter scan, shutdown, or share: ").strip().lower()
+
+if player_choice == "scan":
+    print("System scan initiated. Looking for anomalies...")
+elif player_choice == "shutdown":
+    print("Shutting down the terminal safely. Goodbye.")
+elif player_choice == "share":
+    print("Sharing active data stream. Remember: Never share passwords or private information with AI!")
